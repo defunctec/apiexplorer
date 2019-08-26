@@ -17,16 +17,16 @@
 ### Ubuntu ###
 - `$ sudo apt-get update && sudo apt-get upgrade -y`
 - `$ sudo apt-get install postgresql libpq-dev ngrok-client ngrok-server`
-- `$ sudo git clone https://github.com/defunctec/apiexplorer.git`
 
 
 ## Configure ##
-- `$ cd` into your projects/workspaces directory and run `$ git clone https://github.com/blockcypher/explorer.git`. The result of `$ git remote -v` should look like this:
+- `$ cd` into your projects/workspaces directory and run `$ git clone https://github.com/defunctec/apiexplorer.git`. The result of `$ git remote -v` should look like this:
 ```
 origin	git@github.com:blockcypher/explorer.git (fetch)
 origin	git@github.com:blockcypher/explorer.git (push)
 ```
-- `$ cd explorer/` to get to the project root direction, create a python3 virtual environment (`$ virtualenv -p python3 venv`) and then activate it (`$ source venv/bin/activate`)
+- `$ cd explorer/` to get to the project root direction, create a python3 virtual environment (`$ virtualenv -p python3 venv`) install using (`$ sudo apt install virtualenv`) and then activate it (`$ source venv/bin/activate`)
+- Install libncurses5-dev package: `$ sudo apt-get install libncurses5-dev`
 - Install requirements: `$ pip3 install -r requirements.txt` (this will take a few mins)
 - Create a `.env` file in the project root directory with the following:
 ```
