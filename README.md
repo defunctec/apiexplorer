@@ -16,18 +16,42 @@
 
 ### Ubuntu ###
 - `$ sudo apt-get update && sudo apt-get upgrade -y`
-- `$ sudo apt-get install postgresql libpq-dev ngrok-client ngrok-server`
+- `$ sudo apt-get install postgresql libpq-dev`
+- `$ apt install software-properties-common`
+- `$ add-apt-repository ppa:deadsnakes/ppa`
+- `$ apt install python3.7`
 
+# Change default python version to python 3.7
+- `$ echo "alias python3=python3.7" >> .bashrc`
+- `$ echo "alias python=python3.7" >> .bashrc`
+- `$ source .bashrc`
+
+# Install explorer
+- `$ git clone https://github.com/defunctec/apiexplorer.git`
+- `$ cd apiexplorer`
+ 
+# virtualenv setup
+- `$ apt install virtualenv`
+- `$ virtualenv -p python3 venv`
+- `$ source venv/bin/activate`
+
+# pip build dependenices
+- `$ apt-get install libncurses5-dev`
+- `$ apt-get install python3-pip python3.7-dev`
+
+# install pip dependenices
+- `$ pip3 install -r requirements.txt`
+
+# setup postgres database and update password
+- `$ sudo -u postgres createdb explorer_local`
+- `$ sudo -u postgres psql -U postgres -d postgres -c "alter user postgres with password 'YOURLOCALPASSWORDHERE';"`
 
 ## Configure ##
-- `$ cd` into your projects/workspaces directory and run `$ git clone https://github.com/defunctec/apiexplorer.git`. The result of `$ git remote -v` should look like this:
+- `$ cd` into your projects/workspaces directory and run `$ git remote -v` , it should look like this:
 ```
 origin	git@github.com:blockcypher/explorer.git (fetch)
 origin	git@github.com:blockcypher/explorer.git (push)
 ```
-- `$ cd explorer/` to get to the project root direction, create a python3 virtual environment (`$ virtualenv -p python3 venv`) install using (`$ sudo apt install virtualenv`) and then activate it (`$ source venv/bin/activate`)
-- Install libncurses5-dev package: `$ sudo apt-get install libncurses5-dev`
-- Install requirements: `$ pip3 install -r requirements.txt` (this will take a few mins)
 - Create a `.env` file in the project root directory with the following:
 ```
 DEBUG=True
@@ -44,22 +68,16 @@ BLOCKCYPHER_API_KEY=PUT_YOURS_HERE
 `$ CTRL+Z`
 - Create DB tables from code (replace `foreman` with `heroku` for running on production, which should basically never happen again):
 
-```bash
 # Install foreman
-$ apt install ruby-foreman
-# Upgrade Django
-$ pip install Django --upgrade
+- `$ apt install ruby-foreman`
+
 # Create tables and run migrations:
-$ foreman run python3 manage.py migrate
-```
-## Run the Site Locally ##
+- `$ foreman run python3 manage.py migrate`
 
-Run the webserver locally:
-```
-$ foreman run python3 manage.py runserver
-```
+# Run the webserver locally:
+- `$ foreman run python3 manage.py runserver`
 
-Now visit: http://127.0.0.1:8000/
+Now visit: http://YOURSERVERIP:8000/
 
 To receive webhooks locally, you need to also run `ngrok` in the terminal (use the same `SITE_DOMAIN` from your `.env` file above):
 ```
@@ -77,7 +95,7 @@ from users.models import AuthUser
 AuthUser.objects.create_superuser(email='YOURCHOICE', password='PASSWORDGOESHERE')
 ```
 
-Now visit http://127.0.0.1:8000/admin
+Now visit http://YOURSERVERIP:8000/admin
 
 
 ## Submit Your First Pull Request ##
