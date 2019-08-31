@@ -211,7 +211,7 @@ SENTRY_DSN = os.getenv('SENTRY_DSN')
 # Wallet Name
 WNS_URL_BASE = 'https://pubapi.netki.com/api/wallet_lookup'
 
-DEFAULT_USER_UNIT = 'btc'
+DEFAULT_USER_UNIT = 'crw'
 
 # http://scanova.io/blog/engineering/2014/05/21/error-logging-in-javascript-and-python-using-sentry/
 LOGGING = {

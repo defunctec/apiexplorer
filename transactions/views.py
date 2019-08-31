@@ -157,7 +157,7 @@ def poll_confidence(request, coin_symbol, tx_hash):
 
 
 def pushtx_forwarding(request):
-    kwargs = {'coin_symbol': 'btc'}
+    kwargs = {'coin_symbol': 'crw'}
     redir_url = reverse('push_tx', kwargs=kwargs)
     return HttpResponseRedirect(redir_url)
 
@@ -165,7 +165,7 @@ def pushtx_forwarding(request):
 @render_to('pushtx.html')
 def push_tx(request, coin_symbol):
     '''
-    Push a raw TX to the bitcoin network
+    Push a raw TX to the crown network
     '''
     initial = {'coin_symbol': coin_symbol}
     form = RawTXForm(initial=initial)
@@ -262,7 +262,7 @@ def decode_tx(request, coin_symbol):
 
 
 def decodetx_forwarding(request):
-    kwargs = {'coin_symbol': 'btc'}
+    kwargs = {'coin_symbol': 'crw'}
     redir_url = reverse('decode_tx', kwargs=kwargs)
     return HttpResponseRedirect(redir_url)
 
@@ -324,7 +324,7 @@ def embed_txdata(request, coin_symbol):
 
 
 def embed_txdata_forwarding(request):
-    redir_url = reverse('embed_txdata', kwargs={'coin_symbol': 'btc'})
+    redir_url = reverse('embed_txdata', kwargs={'coin_symbol': 'crw'})
     return HttpResponseRedirect(redir_url)
 
 
@@ -342,5 +342,5 @@ def latest_unconfirmed_tx(request, coin_symbol):
 
 def latest_unconfirmed_tx_forwarding(request):
     return HttpResponseRedirect(reverse('latest_unconfirmed_tx',
-        kwargs={'coin_symbol': 'btc'}
+        kwargs={'coin_symbol': 'crw'}
         ))

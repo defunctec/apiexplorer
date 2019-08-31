@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, serialize=False, verbose_name='ID', primary_key=True)),
                 ('created_at', models.DateTimeField(auto_now_add=True, db_index=True)),
                 ('archived_at', models.DateTimeField(db_index=True, blank=True, null=True)),
-                ('coin_symbol', models.CharField(choices=[('btc', 'Bitcoin'), ('btc-testnet', 'Bitcoin Testnet'), ('ltc', 'Litecoin'), ('doge', 'Dogecoin'), ('uro', 'Uro'), ('bcy', 'BlockCypher Testnet')], db_index=True, max_length=16)),
+                ('coin_symbol', models.CharField(choices=[('crw', 'Crown')], db_index=True, max_length=16)),
                 ('initial_address', models.CharField(db_index=True, max_length=64)),
                 ('destination_address', models.CharField(db_index=True, max_length=64)),
                 ('blockcypher_id', models.CharField(db_index=True, max_length=64)),

@@ -57,10 +57,9 @@ class EmbedDataForm(forms.Form):
         label=_('Network'),
         required=True,
         choices=(
-            ('btc', 'Bitcoin'),
-            ('bcy', 'BlockCypher Testnet'),
+            ('crw', 'Crown'),
             ),
-        help_text=_('Currently only the Bitcoin Mainnet and Blockcypher Testnets are supported'),
+        help_text=_('Currently only the Crown Mainnet is supported'),
     )
 
     def clean_data_to_embed(self):

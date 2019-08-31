@@ -13,7 +13,7 @@ def is_valid_wallet_name(string):
 
     return WALLET_NAME_RE.match(string)
 
-def lookup_wallet_name(wallet_name, currency='btc', wns_base=WNS_URL_BASE):
+def lookup_wallet_name(wallet_name, currency='crw', wns_base=WNS_URL_BASE):
 
     assert is_valid_wallet_name(wallet_name)
 

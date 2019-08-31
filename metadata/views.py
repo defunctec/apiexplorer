@@ -270,5 +270,5 @@ def add_metadata(request, coin_symbol):
 
 
 def metadata_forwarding(request):
-    redir_url = reverse('add_metadata', kwargs={'coin_symbol': 'btc'})
+    redir_url = reverse('add_metadata', kwargs={'coin_symbol': 'crw'})
     return HttpResponseRedirect(redir_url)

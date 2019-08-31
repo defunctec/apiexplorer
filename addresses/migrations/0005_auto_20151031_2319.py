@@ -14,13 +14,13 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='addressforwarding',
             name='coin_symbol',
-            field=models.CharField(db_index=True, max_length=16, choices=[('btc', 'Bitcoin'), ('btc-testnet', 'Bitcoin Testnet'), ('ltc', 'Litecoin'), ('doge', 'Dogecoin'), ('bcy', 'BlockCypher Testnet')]),
+            field=models.CharField(db_index=True, max_length=16, choices=[('crw', 'Crown')]),
             preserve_default=True,
         ),
         migrations.AlterField(
             model_name='addresssubscription',
             name='coin_symbol',
-            field=models.CharField(db_index=True, max_length=16, choices=[('btc', 'Bitcoin'), ('btc-testnet', 'Bitcoin Testnet'), ('ltc', 'Litecoin'), ('doge', 'Dogecoin'), ('bcy', 'BlockCypher Testnet')]),
+            field=models.CharField(db_index=True, max_length=16, choices=[('crw', 'Crown')]),
             preserve_default=True,
         ),
     ]

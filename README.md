@@ -40,11 +40,15 @@ BLOCKCYPHER_API_KEY=PUT_YOURS_HERE
 (these are for your local machine, production is a little different as `settings.py` is smartly designed to default to production settings)
 
 - Create a database on your local machine with whatever name you like. I recommend `explorer_local` so it's clear you're working on a local copy. You'll be using this above in `DJ_DEFAULT_URL`. I've assumed your user is `postgres`, but you could have a different user.
+- Return to project root
+`$ CTRL+Z`
 - Create DB tables from code (replace `foreman` with `heroku` for running on production, which should basically never happen again):
 
 ```bash
 # Install foreman
 $ apt install ruby-foreman
+# Upgrade Django
+$ pip install Django --upgrade
 # Create tables and run migrations:
 $ foreman run python3 manage.py migrate
 ```

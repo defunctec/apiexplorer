@@ -198,7 +198,7 @@ def address_overview(request, coin_symbol, address, wallet_name=None):
 
 
 def subscribe_forwarding(request):
-    kwargs = {'coin_symbol': 'btc'}
+    kwargs = {'coin_symbol': 'crw'}
     redir_url = reverse('subscribe_address', kwargs=kwargs)
     return HttpResponseRedirect(redir_url)
 
@@ -630,7 +630,7 @@ def widgets_overview(request, coin_symbol, address):
 
 
 def widget_forwarding(request):
-    kwargs = {'coin_symbol': 'btc'}
+    kwargs = {'coin_symbol': 'crw'}
     redir_url = reverse('search_widgets', kwargs=kwargs)
     return HttpResponseRedirect(redir_url)
 
@@ -860,6 +860,6 @@ def setup_address_forwarding(request, coin_symbol):
 
 
 def forward_forwarding(request):
-    kwargs = {'coin_symbol': 'btc'}
+    kwargs = {'coin_symbol': 'crw'}
     redir_url = reverse('setup_address_forwarding', kwargs=kwargs)
     return HttpResponseRedirect(redir_url)

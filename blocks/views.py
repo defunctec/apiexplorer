@@ -144,5 +144,5 @@ def latest_block(request, coin_symbol):
 
 def latest_block_forwarding(request):
     return HttpResponseRedirect(reverse('latest_block', kwargs={
-        'coin_symbol': 'btc',
+        'coin_symbol': 'crw',
         }))

@@ -11,7 +11,7 @@ register = template.Library()
 
 
 @register.simple_tag(name='satoshis_to_user_units_trimmed')
-def satoshis_to_user_units_trimmed(input_satoshis, user_unit='btc', coin_symbol='btc', print_cs=True, round_digits=0):
+def satoshis_to_user_units_trimmed(input_satoshis, user_unit='crw', coin_symbol='crw', print_cs=True, round_digits=0):
     return format_crypto_units(
             input_quantity=input_satoshis,
             input_type='satoshi',
