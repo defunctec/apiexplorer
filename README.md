@@ -43,6 +43,8 @@ BLOCKCYPHER_API_KEY=PUT_YOURS_HERE
 - Create DB tables from code (replace `foreman` with `heroku` for running on production, which should basically never happen again):
 
 ```bash
+# Install foreman
+$ apt install ruby-foreman
 # Create tables and run migrations:
 $ foreman run python3 manage.py migrate
 ```
