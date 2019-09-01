@@ -43,11 +43,12 @@
 - `$ pip3 install -r requirements.txt`
 
 # setup postgres database and update password
-- `$ sudo -u postgres createdb explorer_local`
-- `$ sudo -u postgres psql -U postgres -d postgres -c "alter user postgres with password 'YOURLOCALPASSWORDHERE';"`
+- `$ sudo -u postgres psql`
+- `$ CREATE DATABASE explorer_local;`
+- `$ CTRL+z (To exit)`
 
 ## Configure ##
-- `$ cd` into your projects/workspaces directory and run `$ git remote -v` , it should look like this:
+- Run `$ git remote -v` , it should look like this:
 ```
 origin	git@github.com:blockcypher/explorer.git (fetch)
 origin	git@github.com:blockcypher/explorer.git (push)
@@ -63,13 +64,14 @@ BLOCKCYPHER_API_KEY=PUT_YOURS_HERE
 ```
 (these are for your local machine, production is a little different as `settings.py` is smartly designed to default to production settings)
 
-- Create a database on your local machine with whatever name you like. I recommend `explorer_local` so it's clear you're working on a local copy. You'll be using this above in `DJ_DEFAULT_URL`. I've assumed your user is `postgres`, but you could have a different user.
-- Return to project root
-`$ CTRL+Z`
 - Create DB tables from code (replace `foreman` with `heroku` for running on production, which should basically never happen again):
 
 # Install foreman
 - `$ apt install ruby-foreman`
+
+- You may run into errors with the next commands, reinstall psycopg2 if you fail.
+- `$ pip uninstall psycopg2`
+- `$ pip install psycopg2`
 
 # Create tables and run migrations:
 - `$ foreman run python3 manage.py migrate`

@@ -1,4 +1,4 @@
-{% load btc_formats %}
+{% load crw_formats %}
 {% load humanize %}
 
 
@@ -159,7 +159,7 @@
       <div class="collapse" id="{{ transaction.hash }}-readMore">
         <div class={% if force_include_tx_amount %}"container"{% else %}"well"{% endif %}>
             "Estimated Value Sent" excludes known change addresses.
-            For example, let's say we have a single transaction where address A sends 1 BTC to address B and also 1 BTC back to address A as change, then only 1 BTC is estimated to have been sent.
+            For example, let's say we have a single transaction where address A sends 1 CRW to address B and also 1 CRW back to address A as change, then only 1 CRW is estimated to have been sent.
             Proper use of a new change address for each transaction (like all HD wallet implementations) obfuscate this feature.
         </div>
       </div>

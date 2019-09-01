@@ -1,4 +1,4 @@
-{% load btc_formats %}
+{% load crw_formats %}
 {% load humanize %}
 
 <html>
@@ -19,7 +19,7 @@
       {{ b58_address }}
 
       <h4>
-        {% satoshis_to_user_units_trimmed address_overview.final_balance 'btc' coin_symbol True 0 %}
+        {% satoshis_to_user_units_trimmed address_overview.final_balance 'crw' coin_symbol True 0 %}
       </h4>
 
       <i>

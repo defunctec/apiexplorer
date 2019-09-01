@@ -1,6 +1,6 @@
 {% load staticfiles %}
 {% load i18n %}
-{% load btc_formats %}
+{% load crw_formats %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +19,7 @@
 
     <title>
       {% block title %}
-        {% trans "Block Explorer for Bitcoin, Litecoin, Dogecoin and More" %}
+        {% trans "Block Explorer for Crown" %}
       {% endblock %}
       | BlockCypher
     </title>
@@ -64,20 +64,15 @@
             <li>
               <form class="navbar-form navbar-search" role="search" method="post" action="{% url "home" %}">
                 {% csrf_token %}
-                <input type="hidden" value="{% firstof coin_symbol 'btc' %}" id="id_coin_symbol" name="coin_symbol">
+                <input type="hidden" value="{% firstof coin_symbol 'crw' %}" id="id_coin_symbol" name="coin_symbol">
 
                 <div class="input-group">
                   <div class="input-group-btn">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      <span id="search-dropdown-label">{% if coin_symbol %}{{ coin_symbol|coin_symbol_to_display_shortname }}{% else %}BTC{% endif %}</span> <span class="caret"></span>
+                      <span id="search-dropdown-label">{% if coin_symbol %}{{ coin_symbol|coin_symbol_to_display_shortname }}{% else %}CRW{% endif %}</span> <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                      <li><a href="javascript:void(0);" onclick="setCoin('btc', 'BTC')">Bitcoin</a></li>
-                      <li><a href="javascript:void(0);" onclick="setCoin('btc-testnet', 'BTC Testnet')">Bitcoin Testnet</a></li>
-                      <li><a href="javascript:void(0);" onclick="setCoin('ltc', 'LTC')">Litecoin</a></li>
-                      <li><a href="javascript:void(0);" onclick="setCoin('doge', 'DOGE')">DogeCoin</a></li>
-                      <li><a href="javascript:void(0);" onclick="setCoin('dash', 'DASH')">Dash</a></li>
-                      <li><a href="javascript:void(0);" onclick="setCoin('bcy', 'BC Testnet')">BlockCypher Testnet</a></li>
+                      <li><a href="javascript:void(0);" onclick="setCoin('crw', 'CRW')">Crown</a></li>
                     </ul>
                   </div>
                   <input {% if not is_input_page %}autofocus="autofocus"{% endif %} name="search_string" id="id_search_string" type="text" class="form-control search-input" placeholder="Address, transaction or block">
@@ -108,22 +103,7 @@
               </a>
               <ul class="dropdown-menu" role="menu">
                 <li>
-                  <a href="{% url 'coin_overview' 'btc' %}">Bitcoin</a>
-                </li>
-                <li>
-                  <a href="{% url 'coin_overview' 'btc-testnet' %}">Bitcoin Testnet</a>
-                </li>
-                <li>
-                  <a href="{% url 'coin_overview' 'ltc' %}">Litecoin</a>
-                </li>
-                <li>
-                  <a href="{% url 'coin_overview' 'doge' %}">Dogecoin</a>
-                </li>
-                <li>
-                  <a href="{% url 'coin_overview' 'dash' %}">Dash</a>
-                </li>
-                <li>
-                  <a href="{% url 'coin_overview' 'bcy' %}">BlockCypher Testnet</a>
+                  <a href="{% url 'coin_overview' 'crw' %}">Crown</a>
                 </li>
               </ul>
             </li>
@@ -212,7 +192,7 @@
       </div>
     {% endif %}
 
-    {% if coin_symbol == 'btc' and not is_embed_page %}
+    {% if coin_symbol == 'crw' and not is_embed_page %}
       <div class="container">
         <p>
           You can also
